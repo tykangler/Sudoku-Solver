@@ -37,7 +37,9 @@ Each line has everything needed to place a single given value. The first number 
 
 ## Starting
 Input a .txt file correctly set up with your desired initial values.
-`Pick a sudoku file: evil2.txt`
+```
+Pick a sudoku file: evil2.txt
+```
 
 The input from the last section will result in initial values:
 ```
