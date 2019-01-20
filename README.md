@@ -1,5 +1,5 @@
 # Sudoku-Solver
-Solves a game of sudoku given a .txt file with initial values. This was just a way for me to experiment and learn more about recursive backtracking, so everything is pretty rudimentary.
+Solves a game of sudoku given a .txt file with initial values. This was just a way for me to experiment.
 
 ## Setting Up
 The program initializes the game with initial values that are set by the user. There is no error-checking right now, so submitting an empty, or incorrectly formatted file will just screw up the output. 
