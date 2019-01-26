@@ -11,9 +11,9 @@ int main() {
    Sboard s;
    fill_board(s);
    s.print();
-   system("pause");
-   solve_board(s, 1, 1);
+   std::cout << "press any button to solve!";
    std::cin.get();
+   solve_board(s, 1, 1);
    std::cin.get();
 }
 
