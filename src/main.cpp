@@ -3,36 +3,36 @@
 #include "Sboard.hpp"
 #include "Catalog.hpp"
 
-void solve_board(Sboard &s, int row, int col);
-void explore(Sboard &s, int &row, int &col);
+void solve_board(Sboard &board, int row, int col);
+void explore(Sboard &board, int &row, int &col);
 void congratulations();
 
 int main() {
-   Sboard s{Catalog::prompt_for_board()};
-   s.print();
+   Sboard board{Catalog::prompt_for_board()};
+   board.print();
    std::cout << "press any button to solve!\n";
    std::cin.get();
    std::cin.get();
-   solve_board(s, 0, 0);
+   solve_board(board, 0, 0);
    std::cin.get();
 }
 
 // solves the sudoku board
-void solve_board(Sboard &s, int row, int col) {
-   if (s.solved()) {
+void solve_board(Sboard &board, int row, int col) {
+   if (board.solved()) {
       congratulations();
-      s.print();
+      board.print();
    } else {
-      explore(s, row, col);
+      explore(board, row, col);
       for (int val = 1; val <= Sboard::SIZE; val++) {
-         if (s.safe(row, col, val)) {
-            s.fill(row, col, val);
-            if (col >= 8) {
-               solve_board(s, row + 1, 0);
+         if (board.safe(row, col, val)) {
+            board.fill(row, col, val);
+            if (col >= Sboard::SIZE - 1) {
+               solve_board(board, row + 1, 0);
             } else {
-               solve_board(s, row, col);
+               solve_board(board, row, col);
             }
-            s.remove(row, col);
+            board.remove(row, col);
          }
       }
    }
@@ -40,10 +40,10 @@ void solve_board(Sboard &s, int row, int col) {
 
 // finds an unassigned value in the given board. Assigns the row and column value to their 
 // respective parameters if one exists.
-void explore(Sboard &s, int &row, int &col) {
-   while (s.filled(row, col)) {
+void explore(Sboard &board, int &row, int &col) {
+   while (board.filled(row, col)) {
       col++;
-      if (col >= 9) {
+      if (col >= Sboard::SIZE) {
          row++;
          col = 0;
       }
@@ -53,6 +53,6 @@ void explore(Sboard &s, int &row, int &col) {
 // prints congratulations message
 void congratulations() {
    std::cout << "---------------------------------------------\n";
-   std::cout << " /\\_/\\_/\\_/\\_/\\|BOARD  SOLVED|/\\_/\\_/\\_/\\_/\\\n";
+   std::cout << "+++++++++++++++|BOARD  SOLVED|+++++++++++++++\n";
    std::cout << "---------------------------------------------\n\n";
 }
