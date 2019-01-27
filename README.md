@@ -66,10 +66,9 @@ The input from the last section will result in initial values:
 +---+---+---+   +---+---+---+   +---+---+---+
 |   |   |   |   |   |   | 4 |   |   |   |   |
 +---+---+---+   +---+---+---+   +---+---+---+
-Press any key to continue . . .
+press any button to solve!
 ```
 
-(Yes, I know `system("pause")` is a bad of way doing this.)
 Continuing with the program will get you:
 ```
 +---+---+---+   +---+---+---+   +---+---+---+
